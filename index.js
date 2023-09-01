@@ -12,7 +12,9 @@ http.listen(8080, () => {
 })
 
 app.use(cors({
-    origin: ["http://localhost:3000", "http://localhost:4200", "http://localhost:8080","https://prnvyellayi-chatmate.vercel.app"]
+    origin: (origin, callback) => {
+        return callback(null, true)
+    }
 }))
 
 var users = []
